@@ -1,3 +1,16 @@
 em{
   text-decoration:dashed underline;
 }
+
+.background__image {
+  width: 1150px;
+  height: 400px;
+  display: block;
+  margin: auto;
+}
+
+.light-mode {
+  .product-item {
+    background: #ddd;
+  }
+}
