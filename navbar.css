@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css");
+
+#theme-switch {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  right: 0rem;
+  top: 0.7rem;
+  appearance: none;
+  width: 80px;
+  height: 40px;
+  background-color: #ededed;
+  border-radius: 20px;
+  &::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    background-color: #323950;
+    border-radius: 40px;
+    transform: scale(0.8);
+    background-image: url("./img/dark-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    transition: left 0.5s ease-in-out, background-image 0.5s ease-in-out;
+  }
+  &:checked::after {
+    left: 40px;
+    background-image: url("./img/light-icon.png");
+  }
+}
+
+#carrinho-icon {
+  position: relative;
+  right: 1rem;
+  top: 0rem;
+}
+
+.logo {
+  display: block;
+  align-content: center;
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.navigation {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+  background: lightskyblue;
+  position: sticky;
+  top: 0;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1rem;
+  color: white;
+  border-radius: 2rem;
+  position: relative;
+  align-items: center;
+}
+
+.navigation a:hover {
+  background: #5898e0;
+}
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-between;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .navigation {
+    flex-flow: column wrap;
+    padding: 0;
+  }
+  .navigation a {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
+
+.dropbtn {
+  position: relative;
+  top: -0.5rem;
+  background-color: lightskyblue;
+  font-weight: bold;
+  color: whitesmoke;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980b9;
+}
+
+.dropdown-menu {
+  position: relative;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2980b9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 2rem;
+  right: 0rem;
+}
+
+.dropdown-content a {
+  color: whitesmoke;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #216694;
+}
+
+.show {
+  display: block;
+}
+
+.lang-menu {
+  width: 100px;
+  text-align: right;
+  font-weight: bold;
+  margin-top: 25px;
+  position: relative;
+  margin-right: 3rem;
+}
+.lang-menu .selected-lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.lang-menu .selected-lang::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url(img/pt-flag.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.lang-menu ul {
+  margin: 0;
+  padding: 0;
+  display: none;
+  background-color: #2980b9;
+  border: 1px solid #2980b9;
+  position: absolute;
+  top: 25px;
+  right: -3rem;
+  left: auto;
+  width: auto;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(5px);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.lang-menu ul li {
+  list-style: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lang-menu ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.lang-menu ul li img {
+  width: 25px;
+  height: 25px;
+}
+
+.lang-menu ul li:hover {
+  background-color: #216694;
+}
+
+.lang-menu ul li a:before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.pt:before {
+  background-image: url(img/pt-flag.png);
+}
+
+.en:before {
+  background-image: url(img/en-flag.png);
+}
+
+.lang-menu:hover ul {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lang-menu .selected-lang:hover {
+  opacity: 0.85;
+}
+
+.selected-lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.selected-lang img {
+  width: 24px;
+  height: 24px;
+}
+
+[data-i18n] {
+  transition: opacity 0.3s ease; /* fade over 0.3 seconds */
+  opacity: 1;
+}
+[data-i18n].fade-out {
+  opacity: 0;
+}
