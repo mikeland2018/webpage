@@ -9,13 +9,40 @@
 </head>
 <body>
     <ul class="navigation">
-        <li class="logo"><a href="../index.html"><img class="logo" src="img\logo.png" alt="Website Logo" width="200" height="30"></a>
+        <li class="logo"><a href="#"><img class="logo" src="../img/logo.png" alt="Website Logo" width="200" height="30"></a>
         </li>
-        <li><a href="../index.html#sobre">Sobre</a></li>
-        <li><a href="../index.html#produtos">Produtos</a></li>
-        <li><a href="../index.html#contactos">Contactos</a></li>
-        <li><a href="#">🛒</a></li>
+        <li>
+            <div class="lang-menu">
+                <div class="selected-lang">
+                    <img src="../img/pt-flag.png" alt="flag">
+                    <span>Português</span>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#" class="lang-option" data-lang="pt">
+                            <img src="../img/pt-flag.png" alt="">
+                            <span>Português</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="lang-option" data-lang="en">
+                            <img src="../img/en-flag.png" alt="">
+                            <span>English</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
         <li><input onclick="switchTheme()" type="checkbox" id="theme-switch"></li>
+        <li><a href="#">🛒</a></li>
+        <div class="dropdown-menu">
+            <input type="button" onclick="dropdownMenu()" class="dropbtn" value="☰">
+            <div id="dropdownMenu" class="dropdown-content">
+                <a data-i18n="about" href="../index.html#sobre">Sobre</a>
+                <a data-i18n="products" href="../index.html#produtos">Produtos</a>
+                <a data-i18n="contacts" href="../index.html#contactos">Contactos</a>
+            </div>
+        </div>
     </ul>
 
     <script src="../navbar.js"></script>

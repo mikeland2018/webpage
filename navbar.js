@@ -1,7 +1,17 @@
 function switchTheme() {
-  var element = document.body;
-  element.classList.toggle("light-mode");
+  const isDark = document.body.classList.toggle("light-mode");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 }
+
+const savedTheme = localStorage.getItem("theme") || "light";
+if (savedTheme === "dark") {
+  document.body.classList.add("light-mode");
+  document.querySelector("#theme-switch").checked = true; // sync checkbox
+} else {
+  document.body.classList.remove("light-mode");
+  document.querySelector("#theme-switch").checked = false;
+}
+
 
 function dropdownMenu() {
   document.getElementById("dropdownMenu").classList.toggle("show");
@@ -23,7 +33,7 @@ window.onclick = function(event) {
 const languages = {
   pt: {
     name: "Português",
-    flag: "img/pt-flag.png",
+    flag: "/img/pt-flag.png",
     texts: {
       about: "Sobre",
       about_text: "Nós..",
@@ -39,7 +49,7 @@ const languages = {
   },
   en: {
     name: "English",
-    flag: "img/en-flag.png",
+    flag: "/img/en-flag.png",
     texts: {
       about: "About",
       about_text: "We...",
