@@ -1,7 +1,7 @@
 const languages = {
   pt: {
     name: "Português",
-    flag: "img/pt-flag.png",
+    flag: "/img/pt-flag.png",
     texts: {
       about: "Sobre",
       about_text: "Nós..",
@@ -17,7 +17,7 @@ const languages = {
   },
   en: {
     name: "English",
-    flag: "img/en-flag.png",
+    flag: "/img/en-flag.png",
     texts: {
       about: "About",
       about_text: "We...",
