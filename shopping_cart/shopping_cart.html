@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../main.css" type="text/css">
     <link rel="stylesheet" href="../navbar.css" type="text/css">
+    <link rel="stylesheet" href="shopping_cart.css" type="text/css">
     <title>Carrinho</title>
 </head>
 <body>
     <ul class="navigation">
-        <li class="logo"><a href="#"><img class="logo" src="../img/logo.png" alt="Website Logo" width="200" height="30"></a>
+        <li class="logo"><a href="../index.html"><img class="logo" src="../img/logo.png" alt="Website Logo" width="200" height="30"></a>
         </li>
         <li>
             <div class="lang-menu">
@@ -30,7 +31,18 @@
                             <span>English</span>
                         </a>
                     </li>
-                </ul>
+                    <li>
+                        <a href="#" class="lang-option" data-lang="de">
+                            <img src="../img/de-flag.png" alt="">
+                            <span>Deutsch</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="lang-option" data-lang="fr">
+                            <img src="../img/fr-flag.png" alt="">
+                            <span>Français</span>
+                        </a>
+                    </li>
             </div>
         </li>
         <li><input onclick="switchTheme()" type="checkbox" id="theme-switch"></li>
@@ -44,7 +56,11 @@
             </div>
         </div>
     </ul>
+    <section class="web-body">
+        <h1 class= "shopping_cart" data-i18n="shopping_cart">Carrinho de Compras</h1>
+    </section>
 
-    <script src="../navbar.js"></script>
+    <script src="../common.js"></script>
+    <script src="navbar_shopping_cart.js"></script>
 </body>
 </html>

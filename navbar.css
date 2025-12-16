@@ -221,14 +221,6 @@
   background-repeat: no-repeat;
 }
 
-.pt:before {
-  background-image: url(img/pt-flag.png);
-}
-
-.en:before {
-  background-image: url(img/en-flag.png);
-}
-
 .lang-menu:hover ul {
   display: block;
   opacity: 1;

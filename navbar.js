@@ -1,39 +1,7 @@
-function switchTheme() {
-  const isDark = document.body.classList.toggle("light-mode");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-}
-
-const savedTheme = localStorage.getItem("theme") || "light";
-if (savedTheme === "dark") {
-  document.body.classList.add("light-mode");
-  document.querySelector("#theme-switch").checked = true; // sync checkbox
-} else {
-  document.body.classList.remove("light-mode");
-  document.querySelector("#theme-switch").checked = false;
-}
-
-
-function dropdownMenu() {
-  document.getElementById("dropdownMenu").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-
 const languages = {
   pt: {
     name: "Português",
-    flag: "/img/pt-flag.png",
+    flag: "img/pt-flag.png",
     texts: {
       about: "Sobre",
       about_text: "Nós..",
@@ -49,7 +17,7 @@ const languages = {
   },
   en: {
     name: "English",
-    flag: "/img/en-flag.png",
+    flag: "img/en-flag.png",
     texts: {
       about: "About",
       about_text: "We...",
@@ -62,45 +30,36 @@ const languages = {
       contacts_text: "Contact us..",
     }
   },
+  fr: {
+    name: "Français",
+    flag: "img/fr-flag.png",
+    texts: {
+      about: "À propos",
+      about_text: "Nous...",
+      products: "Produits",
+      product_1_text: "Description du produit 1",
+      product_2_text: "Description du produit 2",
+      product_3_text: "Description du produit 3",
+      add_cart_button: "Ajouter au panier",
+      contacts: "Contact",
+      contacts_text: "Contactez-nous..",
+    }
+  },
+  de: {
+    name: "Deutsch",
+    flag: "img/de-flag.png",
+    texts: {
+      about: "Über",
+      about_text: "Wir...",
+      products: "Produkte",
+      product_1_text: "Produkt 1 Beschreibung",
+      product_2_text: "Produkt 2 Beschreibunh",
+      product_3_text: "Produkt 3 Beschreibung",
+      add_cart_button: "Zum Einkaufswagen hinzufügen",
+      contacts: "Kontakte",
+      contacts_text: "kontaktiere uns..",
+    }
+  },
 };
 
-
-function setLanguage(lang) {
-  const data = languages[lang];
-  if (!data) return;
-
-  const flagImg = document.querySelector(".selected-lang img");
-  const langText = document.querySelector(".selected-lang span");
-
-  if (flagImg) flagImg.src = data.flag;
-  if (langText) langText.textContent = data.name;
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-
-    if (data.texts[key]) {
-      el.classList.add("fade-out");
-
-      setTimeout(() => {
-        el.textContent = data.texts[key];
-        el.classList.remove("fade-out");
-      }, 300);
-    } else {
-      console.warn(`Missing translation key: "${key}"`);
-    }
-  });
-
-  localStorage.setItem("lang", lang);
-}
-
-
-document.querySelectorAll(".lang-option").forEach(option => {
-  option.addEventListener("click", e => {
-    e.preventDefault();
-    const lang = option.dataset.lang;
-    setLanguage(lang);
-  });
-});
-
-const savedLang = localStorage.getItem("lang") || "pt";
-setLanguage(savedLang);
+setupStuff(languages);
