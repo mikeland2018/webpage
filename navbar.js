@@ -53,7 +53,7 @@ const languages = {
       about_text: "Wir...",
       products: "Produkte",
       product_1_text: "Produkt 1 Beschreibung",
-      product_2_text: "Produkt 2 Beschreibunh",
+      product_2_text: "Produkt 2 Beschreibung",
       product_3_text: "Produkt 3 Beschreibung",
       add_cart_button: "Zum Einkaufswagen hinzufügen",
       contacts: "Kontakte",
