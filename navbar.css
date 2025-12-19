@@ -54,8 +54,10 @@
   list-style: none;
   margin: 0;
   background: lightskyblue;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .navigation a {

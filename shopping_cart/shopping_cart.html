@@ -1,66 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../main.css" type="text/css">
     <link rel="stylesheet" href="../navbar.css" type="text/css">
     <link rel="stylesheet" href="shopping_cart.css" type="text/css">
+
     <title>Carrinho</title>
 </head>
+
 <body>
-    <ul class="navigation">
-        <li class="logo"><a href="../index.html"><img class="logo" src="../img/logo.png" alt="Website Logo" width="200" height="30"></a>
-        </li>
-        <li>
-            <div class="lang-menu">
-                <div class="selected-lang">
-                    <img src="../img/pt-flag.png" alt="flag">
-                    <span>Português</span>
-                </div>
-                <ul>
-                    <li>
-                        <a href="#" class="lang-option" data-lang="pt">
-                            <img src="../img/pt-flag.png" alt="">
-                            <span>Português</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="lang-option" data-lang="en">
-                            <img src="../img/en-flag.png" alt="">
-                            <span>English</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="lang-option" data-lang="de">
-                            <img src="../img/de-flag.png" alt="">
-                            <span>Deutsch</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="lang-option" data-lang="fr">
-                            <img src="../img/fr-flag.png" alt="">
-                            <span>Français</span>
-                        </a>
-                    </li>
-            </div>
-        </li>
-        <li><input onclick="switchTheme()" type="checkbox" id="theme-switch"></li>
-        <li><a href="#">🛒</a></li>
-        <div class="dropdown-menu">
-            <input type="button" onclick="dropdownMenu()" class="dropbtn" value="☰">
-            <div id="dropdownMenu" class="dropdown-content">
-                <a data-i18n="about" href="../index.html#sobre">Sobre</a>
-                <a data-i18n="products" href="../index.html#produtos">Produtos</a>
-                <a data-i18n="contacts" href="../index.html#contactos">Contactos</a>
-            </div>
+    <div id="navbar-container"></div>
+    <section class="web-body cart-layout">
+    
+        <div class="cart-left">
+    
+            <h1 class="shopping_cart" data-i18n="shopping_cart">Carrinho de Compras</h1>
+
+            <div id="cart-items" class="cart-items"></div>
+            <form id="order-form" class="order-form">
+                <h2 class="form-title" data-i18n="delivery_details">Dados da Encomenda</h2>
+    
+                <input type="text" name="name" placeholder="Nome" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="address" placeholder="Morada"></textarea>
+                <textarea name="text" placeholder="Notas"></textarea>
+            </form>
+    
         </div>
-    </ul>
-    <section class="web-body">
-        <h1 class= "shopping_cart" data-i18n="shopping_cart">Carrinho de Compras</h1>
+    
+        <aside class="cart-summary">
+    
+            <h2 data-i18n="summary">Resumo</h2>
+    
+            <div class="summary-row">
+                <span data-i18n="total">Total</span>
+                <span id="cart-total" data-i18n="cart_total">€0.00</span>
+            </div>
+    
+            <div class="discount">
+                <input type="text" placeholder="Código de desconto">
+                <button type="button" data-i18n="apply">Aplicar</button>
+            </div>
+    
+            <button type="submit" form="order-form" class="place-order" data-i18n="place_order">Colocar Encomenda</button>
+    
+        </aside>
+    
     </section>
 
     <script src="../common.js"></script>
     <script src="navbar_shopping_cart.js"></script>
+    <script src="cart.js"></script>
 </body>
+
 </html>
