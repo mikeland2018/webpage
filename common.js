@@ -30,9 +30,6 @@ window.onclick = function (event) {
 }
 
 function setLanguage(lang, data) {
-  console.log("setLanguage");
-  console.debug(data);
-  console.debug(lang);
   const flagImg = document.querySelector(".selected-lang img");
   const langText = document.querySelector(".selected-lang span");
 
@@ -79,3 +76,45 @@ function setupStuff(languages) {
     setLanguage(lang, data);
   }
 }
+
+function loadNavbar() {
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch("/navbar.html")
+      .then(res => {
+        if (!res.ok) throw new Error("Navbar failed to load");
+        return res.text();
+      })
+      .then(html => {
+        document.getElementById("navbar-container").innerHTML = html;
+
+        if (typeof initNavbar === "function") {
+          initNavbar();
+        }
+      })
+      .catch(err => console.error(err));
+  });
+};
+
+function showAddedFeedback(button) {
+  const originalText = button.textContent;
+  button.textContent = "✓ Adicionado";
+  button.disabled = true;
+
+  setTimeout(() => {
+    button.textContent = originalText;
+    button.disabled = false;
+  }, 1000);
+}
+
+document.querySelectorAll(".add-to-cart").forEach(button => {
+  button.addEventListener("click", () => {
+    const product = {
+      id: button.dataset.id,
+      name: button.dataset.name,
+      price: parseFloat(button.dataset.price)
+    };
+
+    addToCart(product);
+    showAddedFeedback(button);
+  });
+});
