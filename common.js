@@ -95,26 +95,3 @@ function loadNavbar() {
   });
 };
 
-function showAddedFeedback(button) {
-  const originalText = button.textContent;
-  button.textContent = "✓ Adicionado";
-  button.disabled = true;
-
-  setTimeout(() => {
-    button.textContent = originalText;
-    button.disabled = false;
-  }, 1000);
-}
-
-document.querySelectorAll(".add-to-cart").forEach(button => {
-  button.addEventListener("click", () => {
-    const product = {
-      id: button.dataset.id,
-      name: button.dataset.name,
-      price: parseFloat(button.dataset.price)
-    };
-
-    addToCart(product);
-    showAddedFeedback(button);
-  });
-});
