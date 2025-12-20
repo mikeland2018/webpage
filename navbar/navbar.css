@@ -21,7 +21,7 @@
     background-color: #323950;
     border-radius: 40px;
     transform: scale(0.8);
-    background-image: url("./img/dark-icon.png");
+    background-image: url("../img/dark-icon.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;
@@ -29,7 +29,7 @@
   }
   &:checked::after {
     left: 40px;
-    background-image: url("./img/light-icon.png");
+    background-image: url("../img/light-icon.png");
   }
 }
 
@@ -166,7 +166,7 @@
   content: "";
   width: 24px;
   height: 24px;
-  background-image: url(img/pt-flag.png);
+  background-image: url(../img/pt-flag.png);
   background-size: cover;
   background-repeat: no-repeat;
 }

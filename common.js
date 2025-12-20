@@ -4,12 +4,14 @@ function switchTheme() {
 }
 
 const savedTheme = localStorage.getItem("theme") || "light";
+const themeSwitch = document.querySelector("#theme-switch");
+
 if (savedTheme === "dark") {
   document.body.classList.add("light-mode");
-  document.querySelector("#theme-switch").checked = true;
+  if (themeSwitch) themeSwitch.checked = true;
 } else {
   document.body.classList.remove("light-mode");
-  document.querySelector("#theme-switch").checked = false;
+  if (themeSwitch) themeSwitch.checked = false;
 }
 
 function dropdownMenu() {
@@ -79,7 +81,7 @@ function setupStuff(languages) {
 
 function loadNavbar() {
   document.addEventListener("DOMContentLoaded", () => {
-    fetch("/webpage/navbar/navbar.html")
+    fetch("/navbar/navbar.html")
       .then(res => {
         if (!res.ok) throw new Error("Navbar failed to load");
         return res.text();
@@ -94,4 +96,3 @@ function loadNavbar() {
       .catch(err => console.error(err));
   });
 };
-
