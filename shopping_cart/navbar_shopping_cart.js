@@ -54,4 +54,7 @@ function initNavbar() {
   setupStuff(languages);
 }
 
-loadNavbar();
+const path = "../navbar/navbar.html"
+
+loadNavbar(path);
+
