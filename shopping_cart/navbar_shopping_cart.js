@@ -12,7 +12,6 @@ function initNavbar() {
         total: "Total",
         apply: "Aplicar",
         place_order: "Colocar Encomenda",
-        cart_total: "Total no Carrinho",
         about: "Sobre",
         contacts: "Contactos",
         products: "Produtos"
@@ -29,7 +28,6 @@ function initNavbar() {
         total: "Total",
         apply: "Apply",
         place_order: "Place Order",
-        cart_total: "Total in cart",
         about: "About",
         contacts: "Contacts",
         products: "Products"

@@ -47,7 +47,7 @@ function setLanguage(lang, data) {
       setTimeout(() => {
         el.textContent = data.texts[key];
         el.classList.remove("fade-out");
-      }, 300);
+      }, 100);
     } else {
       console.warn(`Missing translation key: "${key}"`);
     }
@@ -96,3 +96,50 @@ function loadNavbar() {
       .catch(err => console.error(err));
   });
 };
+
+document.querySelectorAll(".add-to-cart").forEach(button => {
+  button.addEventListener("click", () => {
+    const product = {
+      id: button.dataset.id,
+      name: button.dataset.name,
+      price: parseFloat(button.dataset.price)
+    };
+
+    addToCart(product);
+    showAddedFeedback(button);
+  });
+});
+
+function getCart() {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(product) {
+  const cart = getCart();
+
+  const existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+
+  saveCart(cart);
+}
+
+function showAddedFeedback(button) {
+  const originalText = button.textContent;
+  button.textContent = "Adicionado 🛒";
+  button.disabled = true;
+
+  setTimeout(() => {
+    button.textContent = originalText;
+    button.disabled = false;
+  }, 1000);
+}
+

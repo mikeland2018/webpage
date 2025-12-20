@@ -1,27 +1,5 @@
-function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function addToCart(product) {
-    const cart = getCart();
-
-    const existing = cart.find(item => item.id === product.id);
-
-    if (existing) {
-        existing.qty += 1;
-    } else {
-        cart.push({ ...product, qty: 1 });
-    }
-
-    saveCart(cart);
-}
-
 const cartContainer = document.querySelector(".cart-items");
-const totalEl = document.querySelector(".cart-total");
+const totalEl = document.querySelector("#cart-total");
 
 function renderCart() {
     const cart = getCart();
@@ -44,10 +22,23 @@ function renderCart() {
         row.className = "cart-row";
 
         row.innerHTML = `
-      <span>${item.qty}× ${item.name}</span>
-      <span>€${(item.price * item.qty).toFixed(2)}</span>
-      <button onclick="removeFromCart('${item.id}')">✕</button>
-    `;
+  <span class="cart-name">${item.name}</span>
+
+  <div class="cart-qty">
+    <button type="button" class="qty-btn"
+            onclick="decreaseQty('${item.id}'); renderCart()">−</button>
+
+    <span class="qty-number">${item.qty}</span>
+
+    <button type="button" class="qty-btn"
+            onclick="increaseQty('${item.id}'); renderCart()">+</button>
+  </div>
+
+  <span class="cart-price">
+    €${(item.price * item.qty).toFixed(2)}
+  </span>
+`;
+
 
         cartContainer.appendChild(row);
     });
@@ -64,18 +55,9 @@ function removeFromCart(id) {
 
 function placeOrder() {
     const cart = getCart();
-    if (cart.length === 0) {
-        alert("O carrinho está vazio!");
-        return;
-    }
 
     const name = document.querySelector("#name").value;
     const email = document.querySelector("#email").value;
-
-    if (!name || !email) {
-        alert("Preenche os dados primeiro 👀");
-        return;
-    }
 
     // later → send email here
     console.log("ORDER:", { name, email, cart });
@@ -86,5 +68,26 @@ function placeOrder() {
     renderCart();
 }
 
+function increaseQty(id) {
+    const cart = getCart();
+    const item = cart.find(i => i.id === id);
+    if (item) item.qty += 1;
+    saveCart(cart);
+}
+
+function decreaseQty(id) {
+    let cart = getCart();
+    const item = cart.find(i => i.id === id);
+
+    if (!item) return;
+
+    if (item.qty > 1) {
+        item.qty -= 1;
+    } else {
+        cart = cart.filter(i => i.id !== id);
+    }
+
+    saveCart(cart);
+}
 
 renderCart();

@@ -20,11 +20,12 @@
             <h1 class="shopping_cart" data-i18n="shopping_cart">Carrinho de Compras</h1>
 
             <div id="cart-items" class="cart-items"></div>
+            <p class="empty-cart" data-i18n="empty_cart" hidden></p>
             <form id="order-form" class="order-form">
                 <h2 class="form-title" data-i18n="delivery_details">Dados da Encomenda</h2>
     
-                <input type="text" name="name" placeholder="Nome" required>
-                <input type="email" name="email" placeholder="Email" required>
+                <input id="name" type="text" name="name" placeholder="Nome" required>
+                <input id="email" type="email" name="email" placeholder="Email" required>
                 <textarea name="address" placeholder="Morada"></textarea>
                 <textarea name="text" placeholder="Notas"></textarea>
             </form>
@@ -37,7 +38,8 @@
     
             <div class="summary-row">
                 <span data-i18n="total">Total</span>
-                <span id="cart-total" data-i18n="cart_total">€0.00</span>
+                <span id="cart-total">€0.00</span>
+
             </div>
     
             <div class="discount">
@@ -52,8 +54,8 @@
     </section>
 
     <script src="../common.js"></script>
-    <script src="navbar_shopping_cart.js"></script>
     <script src="cart.js"></script>
+    <script src="navbar_shopping_cart.js"></script>
 </body>
 
 </html>

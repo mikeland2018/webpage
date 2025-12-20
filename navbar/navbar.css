@@ -255,7 +255,7 @@
 }
 
 [data-i18n] {
-  transition: opacity 0.3s ease; /* fade over 0.3 seconds */
+  transition: opacity 0.1s ease;
   opacity: 1;
 }
 [data-i18n].fade-out {
