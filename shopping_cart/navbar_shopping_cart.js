@@ -14,7 +14,13 @@ function initNavbar() {
         place_order: "Colocar Encomenda",
         about: "Sobre",
         contacts: "Contactos",
-        products: "Produtos"
+        products: "Produtos",
+        name_placeholder: "Nome",
+        email_placeholder: "Email",
+        address_placeholder: "Morada",
+        notes_placeholder: "Notas",
+        discount_code: "Código de desconto",
+        empty_cart: "Carrinho vazio 🛒"
       }
     },
     en: {
@@ -30,7 +36,13 @@ function initNavbar() {
         place_order: "Place Order",
         about: "About",
         contacts: "Contacts",
-        products: "Products"
+        products: "Products",
+        name_placeholder: "Name",
+        email_placeholder: "Email",
+        address_placeholder: "Address",
+        notes_placeholder: "Notes",
+        discount_code: "Discount code",
+        empty_cart: "Empty Cart 🛒"
       }
     },
     fr: {

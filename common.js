@@ -43,13 +43,20 @@ function setLanguage(lang, data) {
 
     if (data.texts[key]) {
       el.classList.add("fade-out");
-
       setTimeout(() => {
         el.textContent = data.texts[key];
         el.classList.remove("fade-out");
       }, 100);
     } else {
       console.warn(`Missing translation key: "${key}"`);
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+
+    if (data.texts[key]) {
+      el.placeholder = data.texts[key];
     }
   });
 }

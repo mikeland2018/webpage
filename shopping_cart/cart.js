@@ -1,17 +1,19 @@
 const cartContainer = document.querySelector(".cart-items");
 const totalEl = document.querySelector("#cart-total");
+const emptyMessage = document.querySelector(".empty-cart");
 
 function renderCart() {
     const cart = getCart();
-    cartContainer.innerHTML = "";
+
+    document.querySelectorAll(".cart-row").forEach(el => el.remove());
 
     if (cart.length === 0) {
-        cartContainer.classList.add("empty");
+        emptyMessage.style.display = "block";
         totalEl.textContent = "€0.00";
         return;
     }
 
-    cartContainer.classList.remove("empty");
+    emptyMessage.style.display = "none";
 
     let total = 0;
 
@@ -22,28 +24,19 @@ function renderCart() {
         row.className = "cart-row";
 
         row.innerHTML = `
-  <span class="cart-name">${item.name}</span>
+      <span>${item.name}</span>
+      <div class="qty-controls">
+        <button onclick="changeQty('${item.id}', -1)">−</button>
+        <span>${item.qty}</span>
+        <button onclick="changeQty('${item.id}', 1)">+</button>
+      </div>
+      <span>${(item.price * item.qty).toFixed(2)}€</span>
+    `;
 
-  <div class="cart-qty">
-    <button type="button" class="qty-btn"
-            onclick="decreaseQty('${item.id}'); renderCart()">−</button>
-
-    <span class="qty-number">${item.qty}</span>
-
-    <button type="button" class="qty-btn"
-            onclick="increaseQty('${item.id}'); renderCart()">+</button>
-  </div>
-
-  <span class="cart-price">
-    €${(item.price * item.qty).toFixed(2)}
-  </span>
-`;
-
-
-        cartContainer.appendChild(row);
+        document.getElementById("cart-items").appendChild(row);
     });
 
-    totalEl.textContent = `€${total.toFixed(2)}`;
+    totalEl.textContent = `${total.toFixed(2)}€`;
 }
 
 function removeFromCart(id) {
@@ -59,7 +52,6 @@ function placeOrder() {
     const name = document.querySelector("#name").value;
     const email = document.querySelector("#email").value;
 
-    // later → send email here
     console.log("ORDER:", { name, email, cart });
 
     alert("Encomenda enviada com sucesso ✨");

@@ -19,15 +19,16 @@
     
             <h1 class="shopping_cart" data-i18n="shopping_cart">Carrinho de Compras</h1>
 
-            <div id="cart-items" class="cart-items"></div>
-            <p class="empty-cart" data-i18n="empty_cart" hidden></p>
+            <div id="cart-items" class="cart-items">
+                <p class="empty-cart" data-i18n="empty_cart" hidden></p>
+            </div>
             <form id="order-form" class="order-form">
                 <h2 class="form-title" data-i18n="delivery_details">Dados da Encomenda</h2>
     
-                <input id="name" type="text" name="name" placeholder="Nome" required>
-                <input id="email" type="email" name="email" placeholder="Email" required>
-                <textarea name="address" placeholder="Morada"></textarea>
-                <textarea name="text" placeholder="Notas"></textarea>
+                <input type="text" data-i18n-placeholder="name_placeholder" placeholder="Nome">
+                <input type="email" data-i18n-placeholder="email_placeholder" placeholder="Email">                
+                <textarea data-i18n-placeholder="address_placeholder" placeholder="Morada"></textarea>
+                <textarea data-i18n-placeholder="notes_placeholder" placeholder="Notas"></textarea>
             </form>
     
         </div>
@@ -43,7 +44,7 @@
             </div>
     
             <div class="discount">
-                <input type="text" placeholder="Código de desconto">
+                <input type="text" data-i18n-placeholder="discount_code" placeholder="Código de desconto">
                 <button type="button" data-i18n="apply">Aplicar</button>
             </div>
     
