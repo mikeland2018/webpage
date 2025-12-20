@@ -81,7 +81,7 @@ function setupStuff(languages) {
 
 function loadNavbar() {
   document.addEventListener("DOMContentLoaded", () => {
-    fetch("navbar/navbar.html")
+    fetch("/navbar/navbar.html")
       .then(res => {
         if (!res.ok) throw new Error("Navbar failed to load");
         return res.text();

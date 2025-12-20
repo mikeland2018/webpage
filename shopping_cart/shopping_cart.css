@@ -112,11 +112,12 @@
 }
 
 .cart-items.empty::before {
-  content: "O carrinho está vazio 🛒";
+  content: "Carrinho vazio 🛒";
   display: block;
   text-align: center;
-  font-size: 1rem;
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 2rem;
+  font-size: 1.1rem;
 }
 
 .cart-item {
